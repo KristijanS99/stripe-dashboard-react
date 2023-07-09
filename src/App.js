@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+
+import Sidepanel from "./components/Sidepanel";
+import Main from "./components/Main";
 
 function App() {
+  const [activeMenu, setActiveMenu] = useState(1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidepanel
+        activeMenu={activeMenu}
+        handleSetActiveMenu={(index) => setActiveMenu(index)}
+      />
+
+      <Main />
     </div>
   );
 }
